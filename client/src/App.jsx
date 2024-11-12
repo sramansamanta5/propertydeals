@@ -2,6 +2,12 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Home from './pages/Home'
+import Signup from './pages/Signup'
+import Login from './pages/Login'
+import About from './pages/About'
+import Profile from './pages/Profile'
 
 
 function App() {
@@ -9,9 +15,20 @@ function App() {
 
   return (
     <>
-      <h1 className='text-red-600 font-bold text-3xl'>Sraman</h1>
       
-      <button>Second</button>
+      <BrowserRouter>
+       
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/sign-up' element={<Signup/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/profile' element={<Profile/>}/>
+
+      </Routes>
+     
+     </BrowserRouter>
+      
     </>
   )
 }
