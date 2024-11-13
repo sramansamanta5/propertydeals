@@ -6,6 +6,8 @@ import { MdSunny } from "react-icons/md";
 import { IoMdMoon } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
+import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuLabel,DropdownMenuItem,DropdownMenuSeparator } from '@/components/ui/dropdown-menu'
+
 
 const Navbar = () => {
 
@@ -24,19 +26,33 @@ const Navbar = () => {
      <div  className='flex flex-row gap-4 items-center text-2xl'>
         <MdSunny size={35}/>
          <Link to='/about'><h1>About</h1></Link>
-        <button onClick={()=>{setToggle(!toggle)}}><IoPerson  size={35}/></button>
+         <DropdownMenu>
+           <DropdownMenuTrigger><button><IoPerson size={35}/></button></DropdownMenuTrigger>
+              <DropdownMenuContent>
+               <DropdownMenuLabel>My Account</DropdownMenuLabel>
+               <DropdownMenuSeparator />
+               <DropdownMenuItem>Profile</DropdownMenuItem>
+               <DropdownMenuItem>Billing</DropdownMenuItem>
+               <DropdownMenuItem>Team</DropdownMenuItem>
+            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            </DropdownMenuContent>
+         </DropdownMenu>
      </div>
      
-      
     </div>
-    <div className='flex flex-row-reverse relative right-2 p-3 ' style={!toggle?{visibility:'hidden'}:{visibility:'visible'}}>
-         <div >
-           <Link to='/sign-up'><h1>Sign Up</h1></Link>
-            <Link to='/sign-in'><h1>Log In</h1></Link> 
-         </div>
-     </div>
+   
  </>
   )
 }
 
 export default Navbar
+// 
+/*
+   <div className='flex flex-row-reverse relative right-2 p-3 ' style={!toggle?{visibility:'hidden'}:{visibility:'visible'}}>
+         <div >
+           <Link to='/sign-up'><h1>Sign Up</h1></Link>
+            <Link to='/sign-in'><h1>Log In</h1></Link> 
+         </div>
+     </div>
+
+*/
