@@ -8,6 +8,7 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import About from './pages/About'
 import Profile from './pages/Profile'
+import Navbar from './components/Navbar'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
     <>
       
       <BrowserRouter>
-       
+       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/sign-up' element={<Signup/>}/>
