@@ -11,7 +11,6 @@ import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuLabel,
 
 const Navbar = () => {
 
-  const [toggle,setToggle]=useState(false)
   return (
     <>
     <div className='p-4 bg-zinc-900 text-white flex flex-row justify-between items-center'>
