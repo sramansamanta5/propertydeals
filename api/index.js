@@ -2,17 +2,20 @@ import express from 'express'
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
 import userRouter from './routes/userRoutes.js'
+import authRouter from './routes/authRoutes.js'
 
 
 
 dotenv.config();
 const app=express();
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{console.log("database is connected.")})
 .catch((err)=>{console.log(err)})
 
 app.use('/api/user',userRouter)
+app.use('/api/auth',authRouter)
 
 app.get('/',(req,res)=>{
     res.send("Home page")
