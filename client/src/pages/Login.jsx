@@ -37,7 +37,7 @@ const Login = () => {
       dispatch(signInFailure())
       return;
     }
-    dispatch(signInSuccess())
+    dispatch(signInSuccess(data))
     navigate('/')
     console.log(data)
       

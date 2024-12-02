@@ -57,3 +57,17 @@ export const login=async(req,res,next)=>{
 
    
 }
+
+
+// Logout functionality
+export const logout = async (req, res, next) => {
+    try {
+      // Clear the cookie by setting it to a past date
+      res.cookie('access_token', '', {
+        httpOnly: true,
+        expires: new Date(0)  // Set the cookie's expiration date to the past
+      }).status(200).json({ message: 'Logged out successfully' });
+    } catch (error) {
+      next(error); // Handle any errors that might occur
+    }
+  };
