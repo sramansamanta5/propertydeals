@@ -4,6 +4,7 @@ import { signInSuccess,signInFailure,signInStart } from '@/redux/features/userSl
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import Oauth from '@/components/Oauth'
 
 const Login = () => {
 
@@ -55,9 +56,12 @@ const Login = () => {
     <input id='email' type='text'placeholder='Enter Email' className='p-2 font-semibold text-2xl w-80 h-16 border-2 border-black border-solid rounded-lg my-2' onChange={handleChange}/>
     <input id='password' type='text'placeholder='Enter Password' className='p-2 font-semibold text-2xl w-80 h-16 border-2 border-black border-solid rounded-lg my-2' onChange={handleChange}/>
     <button className='p-2 bg-green-600 text-white font-semibold rounded-lg my-2' disabled={loading}>{loading?'Loading...':'Login'}</button>
-    <button className='p-2 bg-red-500 text-white font-semibold rounded-lg my-2'>Login with Google</button>
+
+    <Oauth/>
+    
     </form>
     {error && <p className='text-red-500 font-semibold text-xl'>{error}</p>}
+   
    <Link to='/sign-up'><p>Don't Have an Account? Sign up here</p></Link>
   </div>
     

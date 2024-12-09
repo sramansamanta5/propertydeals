@@ -1,3 +1,4 @@
+import Oauth from '@/components/Oauth'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -52,9 +53,12 @@ const Signup = () => {
       <input id='email' type='text'placeholder='Enter Email' className='p-2 font-semibold text-2xl w-80 h-16 border-2 border-black border-solid rounded-lg my-2' onChange={handleChange}/>
       <input id='password' type='text'placeholder='Enter Password' className='p-2 font-semibold text-2xl w-80 h-16 border-2 border-black border-solid rounded-lg my-2' onChange={handleChange}/>
       <button className='p-2 bg-green-600 text-white font-semibold rounded-lg my-2' disabled={loading}>{loading?'Loading...':'Sign Up'}</button>
-      <button className='p-2 bg-red-500 text-white font-semibold rounded-lg my-2'>Sign Up with Google</button>
+
+      <Oauth/>
+      
       </form>
       {error && <p className='text-red-500 font-semibold text-xl'>{error}</p>}
+     
      <Link to='/login'><p>Have an Account? login here</p></Link>
     </div>
   )
