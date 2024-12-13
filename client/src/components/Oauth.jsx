@@ -21,7 +21,7 @@ const Oauth = () => {
 
           const result= await signInWithPopup(auth,provider)
 
-          console.log(result)
+          console.log(result)  //to be deleted later.
 
           const res=await fetch ('/api/auth/google',{
             method:'POST',

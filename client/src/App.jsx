@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import About from './pages/About'
 import Profile from './pages/Profile'
 import Navbar from './components/Navbar'
+import PrivateRoute from './components/PrivateRoute'
 
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         <Route path='/sign-up' element={<Signup/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route element={<PrivateRoute/>}>
         <Route path='/profile' element={<Profile/>}/>
-
+        </Route>
       </Routes>
      
      </BrowserRouter>

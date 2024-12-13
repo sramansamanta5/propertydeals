@@ -8,8 +8,13 @@ import { FaSearch } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuLabel,DropdownMenuItem,DropdownMenuSeparator } from '@/components/ui/dropdown-menu'
 
+import { useSelector } from 'react-redux';
+
 
 const Navbar = () => {
+   
+  
+   const {currentUser}=useSelector((state)=>state.user)
 
   return (
     <>
@@ -21,19 +26,19 @@ const Navbar = () => {
      <input type='text' placeholder='Search here.....' className='h-8 w-1/2 rounded-lg font-bold text-black p-3' />
      <button className='p-2 rounded-lg border-2 border-solid border-red-500 hover:bg-red-500'><FaSearch size={15}/></button> 
      </form>
-     
+     {console.log(currentUser)}
      <div  className='flex flex-row gap-4 items-center text-2xl'>
         <MdSunny size={35}/>
          <Link to='/about'><h1>About</h1></Link>
          <DropdownMenu>
-           <DropdownMenuTrigger><button><IoPerson size={35}/></button></DropdownMenuTrigger>
+           <DropdownMenuTrigger><div className='rounded-full  p-2'>{currentUser?<img src={currentUser.avatar} className='h-8 w-8  object-contain'/>:<IoPerson size={35}/>}</div></DropdownMenuTrigger>
               <DropdownMenuContent>
-               <DropdownMenuLabel>My Account</DropdownMenuLabel>
+               <DropdownMenuLabel>{currentUser?currentUser.username:'Guest'}</DropdownMenuLabel>
                <DropdownMenuSeparator />
                <DropdownMenuItem>Profile</DropdownMenuItem>
-               <DropdownMenuItem>Billing</DropdownMenuItem>
-               <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
+               <DropdownMenuItem>Sign-Up</DropdownMenuItem>
+               <DropdownMenuItem>Login</DropdownMenuItem>
+               <DropdownMenuItem></DropdownMenuItem>
             </DropdownMenuContent>
          </DropdownMenu>
      </div>
