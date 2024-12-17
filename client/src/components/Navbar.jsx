@@ -31,7 +31,7 @@ const Navbar = () => {
         <MdSunny size={35}/>
          <Link to='/about'><h1>About</h1></Link>
          <DropdownMenu>
-           <DropdownMenuTrigger><div className='rounded-full  p-2'>{currentUser?<img src={currentUser.avatar} className='h-8 w-8  object-contain'/>:<IoPerson size={35}/>}</div></DropdownMenuTrigger>
+           <DropdownMenuTrigger>{currentUser?<img src={currentUser.avatar} className='h-8 w-8 rounded-full object-cover '/>:<IoPerson size={35}/>}</DropdownMenuTrigger>
               <DropdownMenuContent>
                <DropdownMenuLabel>{currentUser?currentUser.username:'Guest'}</DropdownMenuLabel>
                <DropdownMenuSeparator />
