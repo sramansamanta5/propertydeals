@@ -1,15 +1,21 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { CgDanger } from "react-icons/cg";
+import { useRef } from 'react';
 
 const Profile = () => {
 
   const {currentUser}=useSelector((state)=>state.user)
 
+  const fileref=useRef(null)
+
+  //Image upload storage not done due to firebase restrictions.We may do it later.
+
   return (
     <div className='m-5 flex flex-col justify-center items-center'>
       <h1 className='text-3xl font-bold '>PROFILE</h1>
-       <img src={currentUser.avatar} className='rounded-full h-24 w-24 object-cover my-3'/>
+      <input type='file' ref={fileref} hidden accept='image/*'/>
+       <img src={currentUser.avatar} className='rounded-full h-24 w-24 object-cover my-3 cursor-pointer' onClick={()=>fileref.current.click()}/>
        <form className='my-2 flex flex-col gap-2 justify-center items-center'>
        <input className='p-2 w-full h-8 border-2 border-black border-solid rounded-lg' id='username' placeholder='username'/>
        <input className='p-2 w-full h-8 border-2 border-black border-solid rounded-lg' id='email' placeholder='email'/>
